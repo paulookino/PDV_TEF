@@ -26,7 +26,8 @@ namespace MGMPDV.Classes
         public DataTable pesquisar(int idvenda)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from CUPOM ",
@@ -41,7 +42,8 @@ namespace MGMPDV.Classes
         {
             int Total = 0;
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select max(cup_id) as Numero from cupom  ", out dt, "@id", "0");
@@ -59,8 +61,9 @@ namespace MGMPDV.Classes
             {
                 int Total = 0;
                 DataTable dt = new DataTable();
-                FBBanco fb = new FBBanco();
-                if (fb.conecta())
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
+            if (fb.conecta())
                 {
                     fb.executeQuery(@"select count(cup_id) as Numero from cupom  ", out dt, "@id", "0");
                     fb.desconecta();
@@ -78,7 +81,8 @@ namespace MGMPDV.Classes
 
         public void removerTodos()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -92,8 +96,9 @@ namespace MGMPDV.Classes
         }
 
         public int inserir(string cup_numero, string cup_codigo, string cup_produto, string cup_aliquota, string cup_quantidade, decimal cup_total)
-        { 
-            FBBanco fb = new FBBanco();
+        {
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int idvenda = 0; ;
             if (fb.conecta())
             {
@@ -114,7 +119,8 @@ namespace MGMPDV.Classes
 
         public void remover(int iditemvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -129,7 +135,8 @@ namespace MGMPDV.Classes
 
         public void removertodos(int iditemvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {

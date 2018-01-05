@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System;
 using System.Data;
 
@@ -20,7 +21,8 @@ namespace MGMPDV
 
         public void inserir(int idcaixa, decimal valor, char debitoOUcredito, string descricao, string informacao, int fun_id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"insert into transacao(cai_id,tra_valor,tra_tipo,tra_descricao,tra_informacao,fun_id
@@ -35,7 +37,8 @@ namespace MGMPDV
 
         public DataTable pegaTransacao(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -48,7 +51,8 @@ namespace MGMPDV
 
         public decimal totalTransacaoIdCaixa(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())
@@ -68,7 +72,8 @@ namespace MGMPDV
 
         public decimal totalSuprimentoIdCaixa(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())
@@ -87,7 +92,8 @@ namespace MGMPDV
         }
         public decimal totalSangriaIdCaixa(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())

@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System;
 using System.Data;
 
@@ -17,7 +18,8 @@ namespace MGMPDV
 
         public void removerParcela(int idParcela)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery("delete from parcelacontareceber where par_id=@id", "@id", idParcela);
@@ -27,7 +29,8 @@ namespace MGMPDV
         
         public void removerParcelaDinheiro(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"delete from parcelacontareceber
@@ -39,7 +42,8 @@ namespace MGMPDV
 
         public void removerParcelaDebito(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"delete from parcelacontareceber
@@ -51,7 +55,8 @@ namespace MGMPDV
 
         public decimal carregarQtdeParcelasDinheiro(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -71,7 +76,8 @@ namespace MGMPDV
 
         public decimal carregarQtdeParcelasDebito(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -91,7 +97,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelaIDParcela(int idparcela)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -108,7 +115,8 @@ namespace MGMPDV
 
         public decimal carregarParcelaCreditoValor(int idparcela)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -128,7 +136,8 @@ namespace MGMPDV
 
         public decimal carregarParcelaChequeValor(int idparcela)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -148,7 +157,8 @@ namespace MGMPDV
 
         public decimal carregarParcelaMarcarValor(int idparcela)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -167,7 +177,8 @@ namespace MGMPDV
         }
         public DataTable carregarParcelasMeioPagamentoAgrupado(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -187,7 +198,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelas(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -247,7 +259,8 @@ namespace MGMPDV
 
         public decimal totaldebito(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())
@@ -270,7 +283,8 @@ namespace MGMPDV
 
         public decimal totalcheque(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())
@@ -293,7 +307,8 @@ namespace MGMPDV
 
         public decimal totalmarcar(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())
@@ -316,7 +331,8 @@ namespace MGMPDV
 
         public decimal totalboleto(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             decimal total = 0;
             if (fb.conecta())
@@ -339,7 +355,8 @@ namespace MGMPDV
         }
         public DataTable carregarParcelasCartao(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -355,7 +372,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasCheque(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -373,7 +391,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasMarcar(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -391,7 +410,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelas()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -409,7 +429,8 @@ namespace MGMPDV
  
         public DataTable carregarParcelasPagasporValor(decimal valor)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -427,7 +448,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasPagas(DateTime datai, DateTime dataf)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -445,7 +467,8 @@ namespace MGMPDV
 
         public decimal carregarParcelasPagasDinheiro(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -467,7 +490,8 @@ namespace MGMPDV
 
         public decimal carregarParcelasPagasCredito(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -489,7 +513,8 @@ namespace MGMPDV
 
         public decimal carregarParcelasPagasDebito(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -511,7 +536,8 @@ namespace MGMPDV
 
         public decimal carregarParcelasPagasMarcar(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -533,7 +559,8 @@ namespace MGMPDV
 
         public decimal carregarParcelasPagasCheque(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -556,7 +583,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasIDCliente(int idcliente,DateTime datai, DateTime dataf)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -575,7 +603,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasData(DateTime datai, DateTime dataf)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -594,7 +623,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasDataPagamento(DateTime datai, DateTime dataf)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -612,7 +642,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasCliente(string clientenome)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -631,7 +662,8 @@ namespace MGMPDV
         public DataTable carregarParcelasClienteInadimplente(int idcliente)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 if (idcliente<=0)
@@ -727,7 +759,8 @@ namespace MGMPDV
 
         public void estornar(int idparcela, int par_controle, int par_numero, int par_pai)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 try
@@ -777,7 +810,8 @@ namespace MGMPDV
 
         public void alterarValor(int idparcela, decimal valor)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"update parcelacontareceber set 
@@ -790,7 +824,8 @@ namespace MGMPDV
 
         public void alterarValorDinheiro(int idvenda, decimal valor)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"update parcelacontareceber set 
@@ -803,7 +838,8 @@ namespace MGMPDV
 
         public void alterarValorDebito(int idvenda, decimal valor)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"update parcelacontareceber set 
@@ -816,7 +852,8 @@ namespace MGMPDV
 
         public void alterarData(int idparcela, DateTime data)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"update parcelacontareceber set 
@@ -830,7 +867,8 @@ namespace MGMPDV
         public decimal totalPacelaContaReceber(int idcaixa)
         {
             decimal total=0;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 DataTable dt = new DataTable();
@@ -848,7 +886,8 @@ namespace MGMPDV
 
         public DataTable carregarParcelasTotalPagamento(DateTime datai, DateTime dataf)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -869,7 +908,8 @@ order by par_descricao";
 
         public DataTable carregarParcelasCaixaRelatorio(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -889,7 +929,8 @@ order by par_descricao";
 
         public DataTable carregarParcelasCaixa(int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -908,7 +949,8 @@ order by par_descricao";
         public decimal totalPacelaContaReceberVenda(int idvenda)
         {
             decimal total = 0;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 DataTable dt = new DataTable();
@@ -926,7 +968,8 @@ order by par_descricao";
 
         public void cancelarConta(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery("update parcelacontareceber set par_status = 0 and par_valorpago = 0 where ven_id = @ven_id", "@ven_id", idvenda);
@@ -1112,7 +1155,8 @@ order by par_descricao";
                }*/
         public int insereContaReceber(int idvenda, int parnumero, decimal valorparcela, DateTime dtvencimento, bool avista, int idcaixa, int idcliente, string descricao, int mei_id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int idparcela = 0;
             if (fb.conecta())
             {
@@ -1174,7 +1218,8 @@ order by par_descricao";
         }
         public int insereContaReceber(int idvenda, int parnumero, decimal valorparcela, DateTime dtvencimento, bool avista, int idcaixa, int idcliente, string descricao)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int idparcela = 0;
             if (fb.conecta())
             {

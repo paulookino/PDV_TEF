@@ -1,6 +1,7 @@
 ﻿using System;
 using Classes.FBBanco;
 using System.Data;
+using MGMPDV.Classes;
 
 namespace MGMPDV
 {
@@ -38,7 +39,8 @@ namespace MGMPDV
 
         public void inserircliente()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -65,7 +67,8 @@ namespace MGMPDV
 
         public void atualizarcliente(int id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -89,7 +92,8 @@ namespace MGMPDV
         public bool excluircliente(int id)
         {
             bool ok = false;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 ok=fb.executeNonQuery("delete from cliente where cli_id = @cli_id", "@cli_id", id);
@@ -101,7 +105,8 @@ namespace MGMPDV
         public DataTable pesquisarAniversarioDia(string dia, string mes)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             { //extract(DAY from current_date)
                 fb.executeQuery(@"select c.*,cid.*
@@ -137,7 +142,8 @@ namespace MGMPDV
         public DataTable pesquisarAniversarioMes(string mes)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             { //extract(DAY from current_date)
                 fb.executeQuery(@"select c.*,cid.*
@@ -172,7 +178,8 @@ namespace MGMPDV
         public DataTable pesquisarID(int idcliente)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from cliente c left join cidade cid on cid.cid_id=c.cid_id where cli_id=@idcliente order by cli_nome",
@@ -205,7 +212,8 @@ namespace MGMPDV
         public DataTable pesquisarIDCliente(int idcliente)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -222,7 +230,8 @@ namespace MGMPDV
         public DataTable buscarTelefone(string numero)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
         
@@ -265,7 +274,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from cliente c left join cidade cid on cid.cid_id=c.cid_id where 
@@ -282,7 +292,8 @@ namespace MGMPDV
         public DataTable pesquisarcpf(string parametro)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from cliente c left join cidade cid on cid.cid_id=c.cid_id where 
@@ -299,7 +310,8 @@ namespace MGMPDV
         public DataTable pesquisarTelefone(string ddd,string telefone)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from cliente c left join cidade cid on cid.cid_id=c.cid_id where 

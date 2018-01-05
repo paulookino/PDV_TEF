@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System;
 using System.Data;
 
@@ -7,7 +8,8 @@ namespace MGMPDV
     class CConfiguracao
     {
         DataTable dt = new DataTable();
-        FBBanco fb = new FBBanco();
+        //FBBanco fb = new FBBanco();
+        SQLBanco fb = new SQLBanco();
         public int bina { get; set; }
         public string mensagem { get; set; }
         public int senha { get; set; }

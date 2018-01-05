@@ -1,4 +1,4 @@
-﻿using Classes.FBBanco;
+﻿using MGMPDV.Classes;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
@@ -33,7 +33,8 @@ namespace MGMPDV
 
         public void inserir(string ddd, string numero)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery("insert into bina(bin_ddd,bin_numero) values(@ddd,@numero)", "@ddd", ddd, "@numero", numero);
@@ -45,7 +46,8 @@ namespace MGMPDV
         public DataTable carregar(string filtro)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"

@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System.Data;
 
 namespace MGMPDV
@@ -32,7 +33,8 @@ namespace MGMPDV
         public DataTable carregar()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from Empresa",
@@ -44,7 +46,8 @@ namespace MGMPDV
 
         public void atualizar()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 DataTable dt = carregar();
@@ -100,7 +103,8 @@ namespace MGMPDV
         public DataTable pesquisar()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from Empresa",

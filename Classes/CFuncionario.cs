@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System;
 using System.Data;
 
@@ -38,7 +39,8 @@ namespace MGMPDV
 
         public void inserir()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -120,7 +122,8 @@ namespace MGMPDV
 
         public void atualizar(int id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -182,7 +185,8 @@ namespace MGMPDV
         public bool excluir(int id)
         {
             bool ok = false;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 ok=fb.executeNonQuery("delete from funcionario where fun_id = @fun_id", "@fun_id", id);
@@ -195,7 +199,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from funcionario f left join cidade c on c.cid_id=f.cid_id where UPPER(fun_" + campo + ") like UPPER(@parametro) order by fun_nome",
@@ -235,7 +240,8 @@ namespace MGMPDV
         public DataTable pesquisarID(int id)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from funcionario f left join cidade c on c.cid_id=f.cid_id 
@@ -255,7 +261,8 @@ namespace MGMPDV
         public DataTable pesquisarExiste(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from funcionario f left join cidade c on c.cid_id=f.cid_id where UPPER(fun_" + campo + ") = UPPER(@parametro) order by fun_nome",
@@ -269,7 +276,8 @@ namespace MGMPDV
         public DataTable entrar(string usuario, string senha)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from funcionario f left join cidade c on c.cid_id=f.cid_id where fun_usuario=@usuario and fun_senha = @senha",

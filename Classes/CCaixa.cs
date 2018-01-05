@@ -1,5 +1,5 @@
-﻿using System;
-using Classes.FBBanco;
+﻿using MGMPDV.Classes;
+using System;
 using System.Data;
 
 namespace MGMPDV
@@ -60,7 +60,8 @@ namespace MGMPDV
         public int abrir(int cai_numero, int fun_id, decimal cai_valorinicial, DateTime cai_datainicial, DateTime cai_horainicial)
         {
 
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int numero = 0;
             if (fb.conecta())
             {
@@ -81,7 +82,8 @@ namespace MGMPDV
 
         public void fechar(int fun_idfechamento, decimal cai_valorfinal, DateTime cai_datafinal, DateTime cai_horafinal, int cai_status, string cai_informacao)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -98,7 +100,8 @@ namespace MGMPDV
 
         public void fechar(int idcaixa, int fun_idfechamento, decimal cai_valorfinal, DateTime cai_datafinal, DateTime cai_horafinal, int cai_status, string cai_informacao)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -116,7 +119,8 @@ namespace MGMPDV
         public DataTable pegaaberto()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select c.*,f.fun_nome as fun_abertura,f2.fun_nome as fun_fechamento from caixa c 
@@ -132,7 +136,8 @@ namespace MGMPDV
         public int pegaIdAberto()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from caixa where cai_status = 1",
@@ -151,7 +156,8 @@ namespace MGMPDV
         public DataTable pegacaixa(int idcaixa)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select c.*,f.fun_nome as fun_abertura,f2.fun_nome as fun_fechamento from caixa c 
@@ -183,7 +189,8 @@ namespace MGMPDV
         public DataTable pegacaixa(int idcaixa, int cai_numero)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select c.*,f.fun_nome as fun_abertura,f2.fun_nome as fun_fechamento from caixa c 
@@ -218,7 +225,8 @@ namespace MGMPDV
         public DataTable pegaultimo(int numero)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select first 1 * from caixa where cai_numero = @numero order by cai_id desc",
@@ -233,7 +241,8 @@ namespace MGMPDV
         public DataTable pegaDataIeDataF(DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select c.*,f.fun_nome as fun_abertura,f2.fun_nome as fun_fechamento from caixa c 
@@ -249,7 +258,8 @@ namespace MGMPDV
         public bool isAberto()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from caixa where cai_status = 1",
@@ -266,7 +276,8 @@ namespace MGMPDV
         public DataTable relatorioCaixa(int idcaixa)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select f1.fun_nome as fun_nome1, f2.fun_nome as fun_nome2, c.*, p.*,cli_nome  from caixa c
@@ -292,7 +303,8 @@ namespace MGMPDV
             DT1 = DT1.Replace("/", ".");
             string DT2 = Convert.ToString(dataf).ToString().Substring(0, 10);
             DT2 = DT2.Replace("/", ".");
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {

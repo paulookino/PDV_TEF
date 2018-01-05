@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System;
 using System.Data;
 
@@ -29,7 +30,8 @@ namespace MGMPDV
 
         public int inserir(int cli_id, int fun_id, int ven_total, string ven_senha, int cai_id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int idvenda = 0; ;
             if (fb.conecta())
             {
@@ -52,7 +54,8 @@ namespace MGMPDV
 
         public int inserircancelada(int fun_id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int idvenda = 0; ;
             if (fb.conecta())
             {
@@ -75,7 +78,8 @@ namespace MGMPDV
 
         public void aplicardesconto(int idvenda, decimal desconto)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -91,7 +95,8 @@ namespace MGMPDV
 
         public void atualizarDesconto(int idvenda, decimal desconto)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -107,7 +112,8 @@ namespace MGMPDV
 
         public void atualizarClienteFuncionario(int idvenda, int idcliente, int idfunvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -120,7 +126,8 @@ namespace MGMPDV
 
         public void atualizarCaixa(int idvenda, int idcaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -132,7 +139,8 @@ namespace MGMPDV
 
         public void atualizarSenha(int idvenda, string senha)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -144,7 +152,8 @@ namespace MGMPDV
 
         public void adicionarvalor(int idvenda, decimal total)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -160,7 +169,8 @@ namespace MGMPDV
 
         public void reativar(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -177,8 +187,9 @@ namespace MGMPDV
 
         public void cancelar(int idvenda)
         {
-            FBBanco fb = new FBBanco();
-            
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
+
             if (fb.conecta())
             {
 
@@ -194,7 +205,8 @@ namespace MGMPDV
 
         public void excluir(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -210,7 +222,8 @@ namespace MGMPDV
 
         public void fechar(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -226,7 +239,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -243,7 +257,8 @@ namespace MGMPDV
         public DataTable pesquisarIDCliente(int idcliente)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -265,7 +280,8 @@ namespace MGMPDV
             string DT2 = Convert.ToString(dataf).ToString().Substring(0, 10);
             DT2 = DT2.Replace("/", ".");
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select count(VEN_ID) as Total from Venda v 
@@ -298,7 +314,8 @@ namespace MGMPDV
             int Total = 0;
 
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select max(VEN_ID) as Total from Venda v ",
@@ -322,7 +339,8 @@ namespace MGMPDV
             string DT2 = Convert.ToString(dataf).ToString().Substring(0, 10);
             DT2 = DT2.Replace("/", ".");
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select sum(VEN_TOTAL) as VTotal from Venda v 
@@ -345,7 +363,8 @@ namespace MGMPDV
         public DataTable pesquisarIDCaixa(int idcaixa)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -360,7 +379,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -383,7 +403,8 @@ namespace MGMPDV
         public DataTable pesquisarcancelada(string parametro, DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Vendacancelada v 
@@ -406,7 +427,8 @@ namespace MGMPDV
         public DataTable pesquisarDataIeDataF(DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -423,7 +445,8 @@ namespace MGMPDV
         public DataTable pesquisarDataIeDataFvendacancelada(DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Vendacancelada v 
@@ -440,7 +463,8 @@ namespace MGMPDV
         public DataTable pesquisarvendaaberta(int idcaixa)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -480,7 +504,8 @@ namespace MGMPDV
         public DataTable pesquisarvendaIdVenda(int idvenda)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -519,7 +544,8 @@ namespace MGMPDV
         public decimal pesquisarvendaTotal(int idvenda)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from Venda v 
@@ -557,7 +583,8 @@ namespace MGMPDV
 
         public DataTable carregarVenda(string datastring)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -583,7 +610,8 @@ left join parcelacontareceber p on p.ven_id = v.ven_id ";
 
         public void inserirPreVenda(int idvenda, int idcliente)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if(fb.conecta())
             {
@@ -595,7 +623,8 @@ left join parcelacontareceber p on p.ven_id = v.ven_id ";
 
         public DataTable pesquisarPreVenda()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -616,7 +645,8 @@ left join parcelacontareceber p on p.ven_id = v.ven_id ";
 
         public DataTable pesquisarPreVendaIDCliente(int idcliente)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {

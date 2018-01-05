@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System.Data;
 
 namespace MGMPDV
@@ -15,7 +16,8 @@ namespace MGMPDV
 
         public void inserirCategoria()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -33,7 +35,8 @@ namespace MGMPDV
 
         public void atualizarCategoria(int id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -49,7 +52,8 @@ namespace MGMPDV
         public bool excluirCategoria(int id)
         {
             bool ok = false;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 ok=fb.executeNonQuery("delete from Categoria where cat_id = @cat_id", "@cat_id", id);
@@ -62,7 +66,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from Categoria where UPPER(cat_" + campo + ") like UPPER(@parametro) order by cat_nome",

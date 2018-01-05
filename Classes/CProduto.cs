@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System.Data;
 
 namespace MGMPDV
@@ -37,7 +38,8 @@ namespace MGMPDV
 
         public void inserir(int cat_id, int mar_id, string pro_nome, string pro_descricao, decimal pro_valor, string pro_codigo, string pro_unidade, decimal pro_quantidade, int pro_estoque, string pro_ncm, decimal pro_aliquota, string pro_cfop, int pro_origem, decimal pro_porcentagemtributo, string pro_csosn, string pro_cst, string pro_cest, int pro_status, byte[] arrayimagem)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             pro_descricao = pro_nome;
             if (fb.conecta())
             {
@@ -58,7 +60,8 @@ namespace MGMPDV
 
         public void atualizar(int id, int cat_id, int mar_id, string pro_nome, string pro_descricao, decimal pro_valor, string pro_codigo, string pro_unidade, decimal pro_quantidade, int pro_estoque, string pro_ncm, decimal pro_aliquota, string pro_cfop, int pro_origem, decimal pro_porcentagemtributo, string pro_csosn, string pro_cst, string pro_cest, int pro_status, byte[] arrayimagem)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -78,7 +81,8 @@ namespace MGMPDV
 
         public void atualizar(int id, int cat_id, int mar_id, string pro_nome, string pro_descricao, decimal pro_valor, string pro_codigo)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -95,7 +99,8 @@ namespace MGMPDV
 
         public void baixarestoque(int idproduto, decimal quantidade)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -112,7 +117,8 @@ namespace MGMPDV
 
         public void RetornarEstoque(int idproduto, decimal quantidade)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -130,7 +136,8 @@ namespace MGMPDV
         public bool excluir(int id)
         {
             bool ok = false;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 ok = fb.executeNonQuery("delete from Produto where pro_id = @pro_id", "@pro_id", id);
@@ -143,7 +150,8 @@ namespace MGMPDV
         public DataTable pesquisarIdCategoria(int idcategoria)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto p 
@@ -189,7 +197,8 @@ namespace MGMPDV
         public DataTable pesquisarid(int id)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto p 
@@ -237,7 +246,8 @@ namespace MGMPDV
         public DataTable pesquisarCodigoBarra(string codigo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto p 
@@ -286,7 +296,8 @@ namespace MGMPDV
         public int retornaIdCategoria(int idProduto)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto where pro_id = @id", out dt, "@id", idProduto);
@@ -306,7 +317,8 @@ namespace MGMPDV
         public int retornaIdMarca(int idProduto)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto where pro_id = @id", out dt, "@id", idProduto);
@@ -326,7 +338,8 @@ namespace MGMPDV
         public DataTable pesquisarProduto(string Produto)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto p 
@@ -377,7 +390,8 @@ namespace MGMPDV
         public string retornaNCM(int idProduto)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto where pro_id = @id", out dt, "@id", idProduto);
@@ -395,7 +409,8 @@ namespace MGMPDV
         public string retornaAliquota(int idProduto)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from produto where pro_id = @id", out dt, "@id", idProduto);
@@ -413,7 +428,8 @@ namespace MGMPDV
         public DataTable pesquisarOrderQuantidade(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -464,7 +480,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -523,7 +540,8 @@ namespace MGMPDV
         public DataTable pesquisarCodigo(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -581,7 +599,8 @@ namespace MGMPDV
         public DataTable pesquisarCategoriaNome(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 

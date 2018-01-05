@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System;
 using System.Data;
 
@@ -19,7 +20,8 @@ namespace MGMPDV
 
         public void inserir(int idvenda, int idproduto, decimal quantidade, decimal valor)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -38,7 +40,8 @@ namespace MGMPDV
 
         public void remover(int iditemvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -53,7 +56,8 @@ namespace MGMPDV
 
         public void removerTodos()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -68,7 +72,8 @@ namespace MGMPDV
 
         /*public void excluirCompra(int id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery("delete from Compra where com_id = @com_id", "@com_id", id);
@@ -79,7 +84,8 @@ namespace MGMPDV
         public DataTable pesquisarIditemvenda(int iditemvenda)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from ItemVenda i 
@@ -102,7 +108,8 @@ namespace MGMPDV
         public DataTable pesquisarItemVendaIDProdutoData(int idproduto, DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select i.*,p.*, (i.ite_valor*i.ite_quantidade) as ite_total from ItemVenda i 
@@ -117,7 +124,8 @@ namespace MGMPDV
         public DataTable pesquisarItemVendaIDCategoriaData(int idcategoria, DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select i.*,p.*, (i.ite_valor*i.ite_quantidade) as ite_total from ItemVenda i 
@@ -134,7 +142,8 @@ namespace MGMPDV
         public DataTable pesquisarItemVendaData(DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select i.*,p.*, (i.ite_valor*i.ite_quantidade) as ite_total from ItemVenda i 
@@ -149,7 +158,8 @@ namespace MGMPDV
         public DataTable pesquisar(int idvenda)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select i.*,p.*, (ite_quantidade*ite_valor) as ite_total from ItemVenda i left join produto p on p.pro_id = i.pro_id where ven_id = @ven_id",
@@ -164,7 +174,8 @@ namespace MGMPDV
         public decimal pesquisartotal(int idvenda)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select sum(ite_valor*ite_quantidade) as total from ItemVenda where ven_id = @ven_id",
@@ -191,7 +202,8 @@ namespace MGMPDV
             int total = 0;
 
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select count(ite_id) as total from ItemVenda",
@@ -212,7 +224,8 @@ namespace MGMPDV
             int total = 0;
 
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select count(ite_id) as total from ItemVenda where ven_id =  @ven_id",
@@ -233,7 +246,8 @@ namespace MGMPDV
             int total = 0;
 
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select max(ven_id) as total from ItemVenda",
@@ -253,7 +267,8 @@ namespace MGMPDV
         public DataTable pesquisarquantidadeItensVendidosData(DateTime datai, DateTime dataf)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select i.pro_id, p.pro_codigo,p.pro_nome, ite_valor as pro_valor, sum(ite_quantidade) as pro_quantidade from itemvenda i

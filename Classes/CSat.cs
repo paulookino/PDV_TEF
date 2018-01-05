@@ -3,6 +3,7 @@ using System.IO;
 using System.Windows.Forms;
 using Classes.FBBanco;
 using System.Data;
+using MGMPDV.Classes;
 
 namespace MGMPDV
 {
@@ -46,7 +47,8 @@ namespace MGMPDV
 
         public void inserir(int ven_id, int sat_sessao, string sat_xml)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -64,7 +66,8 @@ namespace MGMPDV
         public string carregarXMLIDVenda(int ven_id)
         {
             string xml = "";
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -156,7 +159,8 @@ namespace MGMPDV
 
         public void excluirsat(int idvenda)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if (fb.conecta())
             {
@@ -201,7 +205,8 @@ namespace MGMPDV
         
         public DataTable carregarData(DateTime data, int numerocaixa)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             DataTable dt = new DataTable();
             if(fb.conecta())
             {

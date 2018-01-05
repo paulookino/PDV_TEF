@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using Classes.FBBanco;
+using MGMPDV.Classes;
 
 namespace MGMPDV
 {
@@ -11,7 +12,8 @@ namespace MGMPDV
         public void inserir(int numero)
         { 
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"insert into caixanumero(
@@ -29,7 +31,8 @@ namespace MGMPDV
         public void remover(int numero)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeNonQuery(@"delete from caixanumero
@@ -44,7 +47,8 @@ namespace MGMPDV
         public bool pesquisarNumero(int numero)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from caixanumero
@@ -65,7 +69,8 @@ namespace MGMPDV
         public DataTable carregar()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from caixanumero order by cai_numero

@@ -1,4 +1,5 @@
 ﻿using Classes.FBBanco;
+using MGMPDV.Classes;
 using System.Data;
 
 namespace MGMPDV
@@ -17,7 +18,8 @@ namespace MGMPDV
 
         public void inserir()
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
 
             if (fb.conecta())
             {
@@ -35,7 +37,8 @@ namespace MGMPDV
 
         public void atualizar(int id)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
 
@@ -51,7 +54,8 @@ namespace MGMPDV
         public bool excluir(int id)
         {
             bool ok = false;
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 ok=fb.executeNonQuery("delete from Cidade where cid_id = @cid_id", "@cid_id", id);
@@ -64,7 +68,8 @@ namespace MGMPDV
         public DataTable pesquisar(string parametro, string campo)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery("select * from Cidade where UPPER(cid_" + campo + ") like UPPER(@parametro) order by cid_nome",

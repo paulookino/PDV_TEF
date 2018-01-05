@@ -20,7 +20,8 @@ namespace MGMPDV.Classes
         public DataTable pesquisaIdCartao(string cartao)
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from meiopagamento where mei_nome=@nomecartao",
@@ -45,7 +46,8 @@ namespace MGMPDV.Classes
         public DataTable carregar()
         {
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"

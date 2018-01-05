@@ -36,7 +36,8 @@ namespace MGMPDV.Classes
         public int inserir(int id,int nrz,int ico,int fco,int vgt,int vmv,int vds,int vcn,DateTime dmv,string seq,
         string cro,string mfd,string tip,string mar,string mod,string vsb,string dsb,string hsb,string nse,int nou,int nef)
         {
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             int idvenda = 0; ;
             if (fb.conecta())
             {
@@ -61,7 +62,8 @@ namespace MGMPDV.Classes
             DT1 = DT1.Replace("/", ".");
 
             DataTable dt = new DataTable();
-            FBBanco fb = new FBBanco();
+            //FBBanco fb = new FBBanco();
+            SQLBanco fb = new SQLBanco();
             if (fb.conecta())
             {
                 fb.executeQuery(@"select * from ResumoFiscal v 
