@@ -42,8 +42,9 @@ namespace MGMPDV.Classes
             if (fb.conecta())
             {
                 idvenda = fb.executeScalar(@"insert into Venda(id,nrz,ico,fco,vgt,vmv,vds,vcn,dmv,seq,cro,mfd,tip,mar,mod,vsb,dsb,hsb,nse,nou,nef
-                    ) values ( @id,@nrz,@ico,@fco,@vgt,@vmv,@vds,@vcn,@dmv,@seq,@cro,@mfd,@tip,@mar,@mod,@vsb,@dsb,@hsb,@nse,@nou,@nef
-                    ) returning @id",id,"@nrz",nrz,"@ico",ico,"@fco",fco, "@vgt",vgt,"@vmv",vmv, "@vds",vds,"@vcn",vcn,"@dmv",dmv,"@seq",seq,
+                    ) output INSERTED.id 
+values ( @id,@nrz,@ico,@fco,@vgt,@vmv,@vds,@vcn,@dmv,@seq,@cro,@mfd,@tip,@mar,@mod,@vsb,@dsb,@hsb,@nse,@nou,@nef
+                    ) ", "@id", id,"@nrz",nrz,"@ico",ico,"@fco",fco, "@vgt",vgt,"@vmv",vmv, "@vds",vds,"@vcn",vcn,"@dmv",dmv,"@seq",seq,
         "@cro", cro, "@mfd", mfd, "@tip", tip, "@mar", mar, "@mod", mod, "@vsb", vsb, "@dsb", dsb, "@hsb", hsb, "@nse", nse, "@nou", nou, "@nef", nef
                     );
 

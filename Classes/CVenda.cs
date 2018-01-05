@@ -37,9 +37,10 @@ namespace MGMPDV
             {
                 idvenda = fb.executeScalar(@"insert into Venda(
                     cli_id,fun_id,ven_total,ven_senha, cai_id
-                    ) values (
+                    ) output INSERTED.ven_id 
+values (
                     @cli_id,@fun_id,@ven_total,@ven_senha, @cai_id
-                    ) returning ven_id",
+                    ) ",
                     "@cli_id",cli_id, "@fun_id",fun_id,"@ven_total",ven_total,"@ven_senha", ven_senha, "@cai_id", cai_id
                     );
                 
@@ -61,9 +62,10 @@ namespace MGMPDV
             {
                 idvenda = fb.executeScalar(@"insert into Vendacancelada(
                     ven_id,cli_id,fun_id,ven_total,ven_senha,ven_data,ven_hora
-                    ) values (
+                    ) output INSERTED.ven_id 
+values (
                     @ven_id,@cli_id,@fun_id,@ven_total,@ven_senha,@ven_data,@ven_hora
-                    ) returning ven_id",
+                    ) ",
                      "@ven_id", ven_id, "@cli_id", cli_id, "@fun_id", fun_id, "@ven_total", ven_total, "@ven_senha", ven_senha, "@ven_data", ven_data, "@ven_hora", ven_hora
                     );
 

@@ -103,9 +103,10 @@ namespace MGMPDV.Classes
             if (fb.conecta())
             {
                 idvenda = fb.executeScalar(@"insert into Cupom(cup_numero,cup_codigo,cup_produto,cup_aliquota,cup_quantidade, cup_total, cup_data
-                    ) values (
+                    ) output INSERTED.cup_id
+values (
                     @cup_numero,@cup_codigo,@cup_produto,@cup_aliquota,@cup_quantidade, @cup_total, @cup_data
-                    ) returning cup_id", "@cup_numero", cup_numero, "@cup_codigo", cup_codigo, "@cup_produto", cup_produto, "@cup_aliquota", cup_aliquota, "@cup_quantidade", cup_quantidade, "@cup_total", cup_total, "@cup_data", DateTime.Now
+                    ) ", "@cup_numero", cup_numero, "@cup_codigo", cup_codigo, "@cup_produto", cup_produto, "@cup_aliquota", cup_aliquota, "@cup_quantidade", cup_quantidade, "@cup_total", cup_total, "@cup_data", DateTime.Now
                     );
 
                 fb.desconecta();

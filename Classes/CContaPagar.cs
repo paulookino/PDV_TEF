@@ -805,10 +805,11 @@ namespace MGMPDV
                         idparcela = fb.executeScalar(@"insert into parcelacontapagar(
                         com_id,par_numero,par_valor,par_dtvencimento,
                         par_dtpagamento,par_status,par_valorpago,cai_id,par_descricao,par_estornar
-                        ) values (
+                        ) output INSERTED.par_id
+                        values (
                         @com_id,@par_numero,@par_valor,@par_dtvencimento,
                         @par_dtpagamento,@par_status,@par_valorpago,@cai_id,@par_descricao,@par_estornar
-                        ) returning par_id"
+                        ) "
                         , "@com_id", idcompra, "@par_numero", parnumero,
                         "@par_valor", valorparcela, "@par_dtvencimento", dtvencimento,
                         "@par_dtpagamento", DateTime.Now.Date, "@par_status", 0,
@@ -820,10 +821,11 @@ namespace MGMPDV
                             idparcela = fb.executeScalar(@"insert into parcelacontapagar(
                                 com_id,par_numero,par_valor,par_dtvencimento,
                                 par_dtpagamento,par_status,par_valorpago,cai_id,par_descricao,par_estornar
-                                ) values (
+                                ) output INSERTED.par_id
+values (
                                 @com_id,@par_numero,@par_valor,@par_dtvencimento,
                                 @par_dtpagamento,@par_status,@par_valorpago,@cai_id,@par_descricao,@par_estornar
-                                ) returning par_id"
+                                ) "
                                 , "@com_id", idcompra, "@par_numero", parnumero,
                                 "@par_valor", valorparcela, "@par_dtvencimento", dtvencimento,
                                 "@par_dtpagamento", dtvencimento, "@par_status", 0,
@@ -834,9 +836,10 @@ namespace MGMPDV
                         {
                             idparcela = fb.executeScalar(@"insert into parcelacontapagar(
                                 com_id,par_numero,par_valor,cai_id,par_dtvencimento,par_descricao
-                                ) values (
+                                ) output INSERTED.par_id
+values (
                                 @com_id,@par_numero,@par_valor,@cai_id,@par_dtvencimento,@par_descricao
-                                ) returning par_id"
+                                ) "
                                 , "@com_id", idcompra, "@par_numero", parnumero,
                                 "@par_valor", valorparcela, "@cai_id", idcaixa, "@par_dtvencimento", dtvencimento, "@par_descricao", descricao
                             );

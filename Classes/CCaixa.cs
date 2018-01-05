@@ -67,9 +67,10 @@ namespace MGMPDV
             {
                 numero = fb.executeScalar(@"insert into Caixa(
                     cai_numero,fun_id,cai_valorinicial,cai_datainicial,cai_horainicial
-                    ) values (
+                    ) output INSERTED.cai_id
+values (
                     @cai_numero,@fun_id,@cai_valorinicial,@cai_datainicial,@cai_horainicial
-                    ) returning cai_id",
+                    ) ",
                     "@cai_numero", cai_numero, "@fun_id", fun_id, "@cai_valorinicial", cai_valorinicial, "@cai_datainicial", cai_datainicial, "@cai_horainicial", cai_horainicial
                     );
                 fb.desconecta();
